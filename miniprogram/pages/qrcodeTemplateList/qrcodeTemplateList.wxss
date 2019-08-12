@@ -1,0 +1,33 @@
+.qrcode_list_container {
+  display: flex;
+  flex: 1;
+  margin: 20rpx;
+  flex-direction: column;
+}
+
+.qrcode_list_item_container {
+  display: flex;
+  width: 100%;
+  height: 120rpx;
+  border-radius: 10rpx;
+  background: white;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.qrcode_list_item_container image{
+  height: 50rpx;
+  width: 50rpx;
+  margin-right: 20rpx;
+}
+
+.qrcode_list_item_container text {
+  display: flex;
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.viewclick{
+  background-color: rgb(220, 220, 220);
+}

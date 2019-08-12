@@ -1,0 +1,24 @@
+.module_container {
+  display: flex;
+  height: 100%;
+  max-height: 750rpx;
+}
+
+.home_unpermission_container {
+  display: flex;
+  height: 60%;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home_permission_container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}

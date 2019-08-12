@@ -1,0 +1,1 @@
+<view class="btn_view" bindtap="onClick" hover-class="clickView">{{text}}</view>

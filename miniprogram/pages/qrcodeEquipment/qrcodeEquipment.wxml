@@ -1,0 +1,41 @@
+<view class="container">
+  <QrcodTemplateCmpt class="equipment_container" bind:onPreviewAction="onPreview" title="{{title}}">
+    <view slot="content">
+      <view wx:if="{{Data.datas.length === 0}}" class="equipment_none_data_view" hover-class="equipment_none_data_view_click" bindtap="onAddData">
+        点击新增数据
+      </view>
+
+      <bolck wx:for="{{Data.datas}}" wx:key="index">
+        <view class="equipment_item_container" bindtap="onClickItem" bindlongtap="onLongClickItem" data-index="{{index}}">
+          <view wx:if="{{!item.show}}" class="equipment_item_abbr_container">
+            <view class="equipment_item_date">{{item.date}}</view>
+            <view class="equipment_item_inspector">{{item.inspector}}</view>
+          </view>
+          
+          <view wx:if="{{item.show}}" class="equipment_item_info_container">
+            <view class="equipment_item_date">巡查日期：{{item.date}}</view>
+            <view class="equipment_item_inspector">巡查人：{{item.inspector}}</view>
+            <view class="equipment_item_situation">巡查情况：{{item.situation}}</view>
+            <view class="equipment_item_record">巡查记录：{{item.record}}</view>
+          </view>
+        </view>
+      </bolck>
+    </view>
+  </QrcodTemplateCmpt>
+
+
+</view>
+
+
+<modal hidden="{{!optionsItem}}" title="" confirm-text="确定" cancel-text="取消" bindcancel="onModalCancel" bindconfirm="onModalConfirm">
+    <view class="equipment_modal_input_container">
+      <picker mode="date" bindchange="onModalInput" data-field="date">
+        <input value="{{optionsItem.date}}" placeholder="请输入巡查日期" disabled="true"/>
+      </picker>
+      <input value="{{optionsItem.inspector}}" placeholder="请输入巡查人" bindinput="onModalInput" data-field="inspector"/>
+      <input value="{{optionsItem.situation}}" placeholder="请输入巡查情况" bindinput="onModalInput" data-field="situation"/>
+      <input value="{{optionsItem.record}}" placeholder="请输入处理记录" bindinput="onModalInput" data-field="record"/>
+    </view>
+</modal>
+
+

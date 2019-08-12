@@ -1,0 +1,7 @@
+.index_container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin: 10rpx;
+}

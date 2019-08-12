@@ -1,0 +1,71 @@
+.technical_container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 10rpx;
+}
+
+.technical_title_container {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  margin: 20rpx;
+  font-size: 40rpx;
+  border-bottom: solid 1rpx #888;
+}
+.technical_scroll {
+  display: flex;
+  flex: 1;
+}
+
+.technical_input_item_container {
+  display: flex;
+  min-height: 100rpx;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: solid #888 1rpx;
+}
+
+.technical_input_item_container input {
+  flex: 1;
+  text-align: right;
+  margin-right: 20rpx;
+  margin-left: 10rpx;
+}
+
+.technical_input_detail_container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.technical_input_detail_container textarea {
+  width: 100%;
+  min-height: 200rpx;
+  border-radius: 10rpx;
+  padding: 10rpx;
+  border: #888 dashed 1rpx;
+}
+
+.technical_detial_plac {
+  display: flex;
+  justify-content: right;
+  text-align: right;
+}
+
+.technical_btn_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20rpx;
+}
+.technical_btn_container button {
+  width: 90%;
+  text-align: center;
+  background: #d81e06;
+  color: white;
+}
+

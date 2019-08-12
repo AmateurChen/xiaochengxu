@@ -1,0 +1,33 @@
+<view class='container'>
+  <view class='qrcode_list_container'>
+    <view class='qrcode_list_item_container' hover-class='viewclick' bindtap='onMeasureStructure'>
+      <text>结构实测实量表模板</text>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+
+    <view class='qrcode_list_item_container' hover-class='viewclick' bindtap='onMeasurePlaster'>
+      <text>抹灰实测实量表模板</text>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+
+    <view class='qrcode_list_item_container' hover-class='viewclick' bindtap="onMeasureMasonry">
+      <text>砌筑实测实量表模板</text>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+
+    <view class='qrcode_list_item_container' hover-class='viewclick' bindtap="onConsumption">
+      <text>全年用量表模板</text>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+
+    <view class='qrcode_list_item_container' hover-class='viewclick' bindtap="onEquipment">
+      <text>设备巡检表模板</text>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+
+    <view class='qrcode_list_item_container' hover-class='viewclick' bindtap="onToTechnical">
+      <text>技术交底表模板</text>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+  </view>
+</view>

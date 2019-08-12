@@ -1,0 +1,9 @@
+<view class="qrcodetemplate_container">
+    <view class="qrcodetemplate_title_container">
+      <input value="{{title}}" placeholder="模板名称" bindinput="onInput"/>
+    </view>
+    <scroll-view class="qrcodetemplate_scroll" scroll-y>
+      <slot name="content"></slot>
+    </scroll-view>
+    <ButtonCmpt class="qrcodetemplate_btn_view" bind:onClick="onPreview" text="预览" />
+</view>

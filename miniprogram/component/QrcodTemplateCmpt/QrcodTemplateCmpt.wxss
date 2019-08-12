@@ -1,0 +1,33 @@
+.qrcodetemplate_container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.qrcodetemplate_title_container {
+  display: flex;
+  height: 100rpx;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  border-bottom: solid 1rpx #d81e06;
+}
+
+.qrcodetemplate_title_container input {
+  flex: 1;
+  text-align: center;
+}
+
+.qrcodetemplate_scroll {
+  display: flex;
+  flex: 1;
+  margin-top: 10rpx;
+}
+
+.qrcodetemplate_btn_view {
+  display: flex;
+  height: 100rpx;
+  margin: 20rpx;
+}
+

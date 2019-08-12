@@ -1,0 +1,6 @@
+<view class='module_container' bindtap='onClick'>
+  <!--图标-->
+  <image class='module_img' src='{{icon}}'></image>
+  <!--文字-->
+  <text class='module_text'>{{iconText}} </text>
+</view>

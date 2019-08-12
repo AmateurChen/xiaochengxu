@@ -1,0 +1,90 @@
+<template name='measure'>
+  <view class="measure_container">
+    <scroll-view class='table_scroll_container' scroll-y>
+      <scroll-view class='table_scroll_container' scroll-x>
+        <view class='table_container'>
+          <view class='tableName_container'>{{Data.dataName}}</view>
+          <view class='tr'>
+            <view class='first_td'>检测项</view>
+            <view class='td'>合格标准</view>
+            <view class='td'>施工单位</view>
+            <view class='td'>项目部</view>
+            <view class='td'>技术部</view>
+          </view>
+
+          <block wx:for="{{Data.testInfo}}" wx:key="index">
+            <view class='tr'>
+              <view class='first_td' >{{item.testName}}</view>
+              <view class='child_tr'>
+                <block wx:for="{{item.testItems}}" wx:key="index">
+                  <view class='child_td'>{{item.standard}}</view>
+                </block>
+              </view>
+              <view class='child_tr'>
+                <block wx:for="{{item.testItems}}" wx:key="index">
+                  <view class='child_td'>{{item.company}}</view>
+                </block>
+              </view>
+              <view class='child_tr'>
+                <block wx:for="{{item.testItems}}" wx:key="index">
+                  <view class='child_td'>{{item.pejectName}}</view>
+                </block>
+              </view>
+              <view class='child_tr'>
+                <block wx:for="{{item.testItems}}" wx:key="index">
+                  <view class='child_td'>{{item.technicalSector}}</view>
+                </block>
+              </view>
+            </view>
+          </block>
+
+          <view class='tr'>
+            <view class='first_td'>{{Data.tester.title}}</view>
+            <view class='td tester'>{{Data.tester.value}}</view>
+          </view>
+
+          <view class='tr'>
+            <view class='first_td'>{{Data.reTester.title}}</view>
+            <view class='td tester'>{{Data.reTester.value}}</view>
+          </view>
+
+          <view class='tr last_tr'>
+            <view class='first_td'>{{Data.testDate.title}}</view>
+            <view class='td'></view>
+            <view class='td'>{{DateTools.getYear(Data.testDate.value)}}年</view>
+            <view class='td'>{{DateTools.getMonth(Data.testDate.value)}}月</view>
+            <view class='td'>{{DateTools.getDay(Data.testDate.value)}}日</view>
+          </view>
+        </view>
+      </scroll-view>
+    </scroll-view>
+  </view>
+</template>
+
+<wxs module="DateTools">
+  getYear = function(dateStr) {
+      if (!dateStr) {
+        return "";
+      }
+      var arrays = dateStr.split('-');
+	    return arrays[0];
+  }
+
+  getMonth = function(dateStr) {
+      if (!dateStr) {
+        return "";
+      }
+      var arrays = dateStr.split('-');
+	    return arrays[1];
+  }
+
+  getDay = function(dateStr) {
+    if (!dateStr) {
+        return "";
+      }
+    var arrays = dateStr.split('-');
+    return arrays[2];
+  }
+
+  module.exports = {getYear: getYear, getMonth: getMonth, getDay: getDay}
+</wxs>

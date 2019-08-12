@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "QrcodTemplateCmpt": "../../component/QrcodTemplateCmpt/QrcodTemplateCmpt"
+  }
+}

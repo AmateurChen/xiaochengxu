@@ -1,0 +1,28 @@
+.module_container {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  flex-direction: column;
+  width: 230rpx;
+  height: 230rpx;
+  border-radius: 15rpx;
+  background-color: rgb(245, 245, 245);
+  background-clip: 20rpx;
+
+  }
+.module_img {
+  
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;  
+
+}
+.module_text {
+  margin-top: 20rpx;
+  color: #d81e06;
+  font-weight: bold;
+  font-family: "雅黑";
+  font-size: 35rpx;
+
+}
+

@@ -1,0 +1,48 @@
+<template name='equipment'>
+  <scroll-view scroll-y class="equipment_scroll">
+    <view class="equipment_table_container">
+        <view class="equipment_table_tr">
+          <view class="equipment_table_td none_border">{{Data.dataName}}</view>
+        </view>
+        <view class="equipment_table_tr">
+          <view class="equipment_table_td">巡查日期</view>
+          <view class="equipment_table_td">巡查情况</view>
+          <view class="equipment_table_td">巡查记录</view>
+          <view class="equipment_table_td none_border">巡查人</view>
+        </view>
+
+        <block wx:for="{{Data.datas}}" wx:key="index">
+          <view class="equipment_table_tr">
+            <view class="equipment_table_td">{{item.date}}</view>
+            <view class="equipment_table_td">{{item.situation}}</view>
+            <view class="equipment_table_td">{{item.record}}</view>
+            <view class="equipment_table_td none_border">{{item.inspector}}</view>
+          </view>
+        </block>
+
+        <block wx:for="{{EquipmentTools.buildComplete(Data.datas)}}" wx:key="index">
+          <view class="equipment_table_tr">
+            <view class="equipment_table_td"></view>
+            <view class="equipment_table_td"></view>
+            <view class="equipment_table_td"></view>
+            <view class="equipment_table_td none_border"></view>
+          </view>
+        </block>
+      </view> 
+  </scroll-view>
+
+</template>
+
+
+<wxs module="EquipmentTools">
+  buildComplete = function(datas) {
+      var size = !datas || datas.length === 0 ? 0: datas.length;
+      var result = [];
+      for (var i = size; i < 15; i ++) {
+        result[i] = {};
+      }
+      return result;
+  }
+
+  module.exports = {buildComplete: buildComplete}
+</wxs>

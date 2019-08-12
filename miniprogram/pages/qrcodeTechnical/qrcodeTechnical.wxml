@@ -1,0 +1,47 @@
+<view class="container">
+  <QrcodTemplateCmpt class="technical_container" bind:onPreviewAction="onPreview" title="{{title}}">
+    <view slot="content">
+      <view class="technical_input_item_container">
+        <text>编号</text>
+        <input value="{{Data.data.discloseNo}}" data-field-child="discloseNo" placeholder="请输入编号" bindinput="onInputValue"/>
+      </view>
+      <view class="technical_input_item_container">
+        <text>工程名称</text>
+        <input value="{{Data.data.projectName}}" data-field-child="projectName" placeholder="请输入工程名称" bindinput="onInputValue"/>
+      </view>
+      <view class="technical_input_item_container">
+        <text>分部工程名称</text>
+        <input value="{{Data.data.branchProjectName}}" data-field-child="branchProjectName" placeholder="请输入分部工程名称" bindinput="onInputValue"/>
+      </view>
+      <view class="technical_input_item_container">
+        <text>分项工程名称</text>
+        <input value="{{Data.data.subitemProjectName}}" data-field-child="subitemProjectName" placeholder="请输入分项工程名称" bindinput="onInputValue"/>
+      </view>
+      <view class="technical_input_item_container">
+        <text>施工单位</text>
+        <input value="{{Data.data.company}}" data-field-child="company" placeholder="请输入施工单位" bindinput="onInputValue"/>
+      </view>
+      <picker mode="date" bindchange="onInputValue" data-field-child="discloseDate">
+        <view class="technical_input_item_container">
+          <text>交底日期</text>
+          <input value="{{Data.data.discloseDate}}"  placeholder="请输入交底日期" disabled="false"/>
+        </view>
+      </picker>
+      <view class="technical_input_detail_container">
+        <textarea auto-height maxlength="-1" value="{{discloseDetail}}" placeholder="请输入交底内容" bindinput="onInputDetail"/>
+      </view>
+      <view class="technical_input_item_container">
+        <text>审核人</text>
+        <input value="{{Data.data.auditor}}" data-field-child="auditor" placeholder="请输入审核人" bindinput="onInputValue"/>
+      </view>
+      <view class="technical_input_item_container">
+        <text>交底人</text>
+        <input value="{{Data.data.clarifyingPeople}}" data-field-child="clarifyingPeople" placeholder="请输入交底人" bindinput="onInputValue"/>
+      </view>
+      <view class="technical_input_item_container">
+        <text>接收交底人</text>
+        <input value="{{Data.data.receiver}}" data-field-child="receiver" placeholder="请输入接收（全员）交底人" bindinput="onInputValue"/>
+      </view>
+    </view>
+  </QrcodTemplateCmpt>
+</view>

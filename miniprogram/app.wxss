@@ -1,0 +1,17 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0rpx;
+}
+
+.viewclick{
+  background-color: red;
+}
+
+page {
+  background-color: rgb(230, 230, 230);
+}

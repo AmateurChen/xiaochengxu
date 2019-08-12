@@ -1,0 +1,78 @@
+<import src='../../template/measureTemplate.wxml' />
+<import src='../../template/technicalTemplate.wxml' />
+<import src='../../template/consumptionTemplate.wxml' />
+<import src='../../template/equipmentTemplate.wxml' />
+
+<view class='container'>
+  <view wx:if="{{!showQrcode}}" class="qrcode_preview_container">
+    <template is='measure' wx:if="{{Data.dataType === 'measure'}}" data="{{Data}}"/>
+    <template is='technical' wx:if="{{Data.dataType === 'technical'}}" data="{{Data}}"/>
+    <template is='consumption' wx:if="{{Data.dataType === 'consumption'}}" data="{{Data}}"/>
+    <template is='equipment' wx:if="{{Data.dataType === 'equipment'}}" data="{{Data}}"/>
+    <button wx:if="{{action != 'preview' && action && Data}}" class="qrcode_preview_btn" hover-class="qrcode_preview_btn_click" bindtap="onActoinBtn">{{Tools.getBtnText(action)}}</button>
+  </view>
+
+  
+  
+  <view wx:if="{{showQrcode}}" class="qrcode_preview_img_container">
+    <canvas hidden="{{qrcodeStr}}" canvas-id='mycanvas'/>
+    <image src='{{qrcodeStr}}' mode="widthFix" bindtap="onClickPreview"/>
+  </view>
+  
+</view>
+
+
+<modal hidden="{{true}}"  confirm-text="确认" no-cancel="true" bindconfirm="onModalConfirm">
+  <view style="display: flex; flex: 1; justify-content: center; align-items: center;">
+    <image src="{{qrcodeSrc}}" style="width: 400rpx; height: 400rpx;" />
+  </view>
+  
+
+</modal>
+
+<modal hidden="{{true}}" title="二维码申请" confirm-text="确认" cancel-text="取消" bindcancel="onModalCancel" bindconfirm="onModalConfirm">
+    <input 
+      class="consumption_modal_input"
+      value="{{optionsItem.material.materialName}}" 
+      placeholder="请输入二维码类型" 
+      bindinput="onModalInput"
+      data-field="materialName"
+    />
+    <input 
+      class="consumption_modal_input"
+      type="digit"
+      value="{{optionsItem.material.consumeCount}}" 
+      placeholder="请输入二维码编号" 
+      bindinput="onModalInput"
+      data-field="consumeCount"
+    />
+    <input 
+      class="consumption_modal_input"
+      value="{{optionsItem.material.unitPrice}}" 
+      placeholder="请输入二维码的描述信息" 
+      bindinput="onModalInput"
+      data-field="unitPrice"
+    />
+    <input 
+      class="consumption_modal_input"
+      style="border: none; text-align: right; margin-right: 20rpx;"
+      placeholder="{{Tools.calcSubTotal(optionsItem.material)}}" 
+      disabled="false"
+    />
+</modal>
+
+<wxs module="Tools">
+  getBtnText = function(actionType) {
+    if (actionType === 'new') {
+      return "申请二维码";
+    } else if(actionType === 'update') {
+      return "修改";
+    } else if (actionType === 'submit') {
+      return "提交";
+    }
+
+    return actionType;
+  }
+
+  module.exports = {getBtnText: getBtnText};
+</wxs>

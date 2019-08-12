@@ -1,0 +1,52 @@
+.equipment_container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 5rpx;
+}
+
+.equipment_none_data_view {
+  display: flex;
+  flex: 1;
+  min-height: 500rpx;
+  justify-content: center;
+  align-items: center;
+  text-decoration:underline;
+  color: #888;
+}
+.equipment_none_data_view_click {
+  color: blue;
+}
+
+
+.equipment_item_container {
+  display: flex;
+  flex-direction: column;
+  background: rgb(240, 240, 240);
+  border-radius: 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin: 10rpx;
+}
+
+.equipment_item_abbr_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 100rpx;
+  align-items: center;
+  
+}
+
+.equipment_item_info_container view{
+  display: flex;
+  align-items: center;
+  min-height: 80rpx;
+
+}
+
+
+.equipment_modal_input_container input{
+  min-height: 100rpx;
+  border-bottom: solid 1rpx #888;
+}

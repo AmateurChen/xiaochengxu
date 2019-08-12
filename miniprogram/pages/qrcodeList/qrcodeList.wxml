@@ -1,0 +1,45 @@
+<view class="container">
+  <view wx:if="{{datas.length > 0}}" class="qrcodelist_container">
+    <scroll-view class="qrcodelist_scroll" scroll-y>
+      <block wx:for="{{datas}}" wx:key="index">
+        <view class="qrcodelist_item_container" bindtouchstart="onItemTouchStart" bindtouchend="onItemTouchEnd" bindtap="onClickItem" bindlongtap="onItemLongClick" data-index="{{index}}">
+          <view class="qrcodelist_item_title">{{Tools.getDataTitle(item.dataType)}}</view>
+          <view wx:if="{{item.dataType}}" class="qrcodelist_item">名称：{{item.dataName}}</view>         
+          <view wx:if="{{item.createTime}}" class="qrcodelist_item">生成日期：{{item.createTime}}</view>
+          <view wx:if="{{item.updateTime}}" class="qrcodelist_item">最后修改：{{item.updateTime}}</view>
+        </view>
+      
+      </block>
+    </scroll-view>
+    <view hidden="{{goneMoreView}}" class="qrcodelist_more_view" hover-class="view_click" bindtap="onMoreAction">加载更多</view>
+  </view>
+
+  <view wx:if="{{datas.length === 0}}" class="qrcodelist_none_data_container">
+    无浏览记录
+  </view>
+</view>
+
+<modal hidden="{{!showQrcode}}" confirm-text="确定" no-cancel="true" bindconfirm="onModalConfirm">
+    <view class="qrcode_preview_img_container">
+      <canvas hidden="{{qrcodeStr}}" canvas-id='mycanvas'/>
+      <image src='{{qrcodeStr}}' bindtap="onPreviewQrcode"/>
+    </view>
+</modal>
+
+<wxs module="Tools">
+  getDataTitle = function(dataType) {
+    if (dataType === 'consumption') {
+      return '全年用量';
+    } else if (dataType === 'measure') {
+      return '实测实量';
+    } else if (dataType === 'technical') {
+      return '技术交底';
+    } else if (dataType === 'equipment') {
+      return '巡检记录表';
+    }
+    return dataType;
+  }
+
+  module.exports = {getDataTitle: getDataTitle};
+
+</wxs>

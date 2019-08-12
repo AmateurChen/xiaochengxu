@@ -1,0 +1,54 @@
+<view class='container'>
+
+  <view class='user_container'>
+    <view class='useritem_container'>
+      <text>姓名</text>
+      <input value='{{name}}' placeholder="{{isLogin ? '点击':'登录后'}}修改" bindinput='onInputName' maxlength="10" disabled="{{!isLogin}}"/>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+    
+    <view class='useritem_container'>
+      <text>联系电话</text>
+      <input value='{{mobile}}' placeholder="{{isLogin ? '点击':'登录后'}}修改" bindinput='onInputMobile' type="number" maxlength="11" disabled="{{!isLogin}}"/>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+
+    <view class='useritem_container useritem_margin_top' bindtap="onRecord" hover-class='viewclick'>
+      <text>浏览记录</text>
+      <input disabled='true'></input>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+
+    <view class='useritem_container useritem_margin_top' bindtap='onPermission' hover-class='viewclick' >
+      <text>权限信息</text>
+      <input disabled='true' placeholder='{{permissionInfo}}'></input>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+
+    <view wx:if="{{showQrcodeItem}}" class='useritem_container useritem_margin_top' bindtap='onToQrcodeList' hover-class='viewclick'>
+      <text>二维码管理</text>
+      <input disabled='true'></input>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+
+    <view class='useritem_container useritem_margin_top'bindtap='onClearData' hover-class='viewclick'>
+      <text>清理数据</text>
+      <input disabled='true' placeholder='{{cacheData}}'></input>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+
+    <view class='useritem_container useritem_margin_top' bindtap='onUpdateCheck' hover-class='viewclick'>
+      <text>检查更新</text>
+      <input disabled='true' placeholder='v1.0.3'></input>
+      <image src='../../images/icons/right.png'></image>
+    </view>
+    
+    <view class='useritem_btn_container' hidden='{{goneSaveView}}'>
+      <button bindtap='onSaveInput'>保存</button>
+    </view>
+
+    <view class='useritem_btn_container' hidden='{{isLogin}}'>
+      <button bindgetuserinfo='onLogin' open-type="getUserInfo">登录</button>
+    </view>
+  </view>
+</view>

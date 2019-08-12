@@ -1,0 +1,36 @@
+.user_module_container {
+  display: flex;
+  width: 100%;
+}
+
+
+.user_view_container {
+  display: flex;
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 30rpx;
+  margin-bottom: 0rpx;
+  box-shadow: 0rpx 3rpx 10rpx #aaa;
+}
+.user_module_container image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}
+
+.user_module_container button {
+  width: 200rpx;
+  height: 200rpx;
+  background-size: cover;
+  border-radius: 50%;
+}
+.user_module_container text {
+  color: black;
+  font-size: 40rpx;
+  margin-top: 30rpx;
+}

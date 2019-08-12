@@ -1,0 +1,38 @@
+<view class='container'>
+  <scroll-view wx:if="{{data.permissionList.length !== 0}}" class='permission_list_container' scroll-y >
+    <block wx:for="{{data.permissionList}}" wx:key="applyId">
+      <view class='permission_item_container'>
+
+        <view class='permission_item_text_container' bindlongtap="onLongAction" data-index="{{index}}">
+          <text>{{item.otherInfo.name}}</text>
+          <text>{{item.otherInfo.mobile}}</text>
+        </view>
+        <view class="permission_item_seal_container" bindlongtap="onLongAction" data-index="{{index}}">
+          <image src="../../images/icons/seal.png" />
+          <text>{{Tools.getPermission(item.permission)}}</text>
+        </view>
+      </view>
+      
+    </block >
+  </scroll-view>
+  <view wx:if="{{!data.permissionList || data.permissionList.length === 0}}" class="permission_none_data_container">
+    没有数据
+  </view>
+  <view hidden="{{goneMoreView || data.permissionList.length === 0}}" class="permission_more_view" hover-class="view_click" bindtap="onMoreAction">加载更多</view>
+</view>
+
+<wxs module="Tools">
+  getPermission = function(permission) {
+    if (permission === 'root') {
+      return "超级管理员";
+    } else if(permission === '10') {
+      return "管理员";
+    } else if (permission === '0') {
+      return "未分配";
+    }
+
+    return '';
+  }
+
+  module.exports = {getPermission: getPermission};
+</wxs>

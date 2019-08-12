@@ -1,0 +1,96 @@
+<view class='container'>
+
+  <QrcodTemplateCmpt class="qrcode_info_container" bind:onPreviewAction="onPreview" title="{{title}}">
+    <view slot="content">
+      <block wx:for='{{Data.testInfo}}' wx:key='index'>
+        <view class='qrcode_info_list_item_container' bindtouchstart="onItemTouchStart" bindtouchend="onItemTouchEnd" bindlongtap="onLongClickItem" bindtap="onClickItem" data-index="{{index}}">
+          <text>{{item.testName}}</text>
+          <image src="{{item.isShow ? '../../images/icons/arrow_top.png' : '../../images/icons/arrow_down.png'}}" />
+        </view>
+
+        <view class="qrcode_info_list_gone_container" hidden="{{!item.isShow}}">
+          <block wx:for='{{item.testItems}}' wx:key='childIndex' wx:for-index="childIndex">
+            <image class="qrcode_info_list_child_delete" src="../../images/icons/delete.png" bindtap="onDeleteChildItem" data-parent-index="{{index}}" data-index="{{childIndex}}"/>
+            <view class='qrcode_info_list_child_container'>
+              <input
+                value="{{item.standard}}" 
+                placeholder="合格标准" 
+                bindinput="onInputItemInfo" 
+                data-parent-index="{{index}}" 
+                data-index="{{childIndex}}"
+                data-field="standard"
+              />
+              <input 
+                value="{{item.company}}" 
+                placeholder="施工单位"
+                bindinput="onInputItemInfo" 
+                data-parent-index="{{index}}" 
+                data-index="{{childIndex}}"
+                data-field="company"
+              />
+              <input 
+                value="{{item.pejectName}}"
+                placeholder="项目部" 
+                bindinput="onInputItemInfo" 
+                data-parent-index="{{index}}" 
+                data-index="{{childIndex}}"
+                data-field="pejectName"
+              />
+              <input 
+                value="{{item.technicalSector}}" 
+                placeholder="技术部" 
+                bindinput="onInputItemInfo" 
+                data-parent-index="{{index}}" 
+                data-index="{{childIndex}}"
+                data-field="technicalSector"
+                style="border-bottom: none;" 
+              />
+            </view>
+          </block>
+          <button bindtap="onAddChildItem" data-parent-index="{{index}}">添加一条数据</button>
+        </view>
+      </block>
+      <view class='qrcode_info_list_item_container' bindtouchstart="onItemTouchStart" bindtouchend="onItemTouchEnd" bindlongtap="onLongClickTester" bindtap="onClickTester">
+        <text>检测及检测时间</text>
+        <image src="{{isShowTster ? '../../images/icons/arrow_top.png' : '../../images/icons/arrow_down.png'}}" />
+      </view>
+      <view class="qrcode_info_list_gone_container" hidden="{{!isShowTster}}">
+        <view class="qrcode_info_list_child_container">
+          <view class="qrcode_info_tester_item_container">
+            <image src="../../images/icons/tester.png" />
+            <input value="{{Data.tester.value}}" bindinput="onInputTester" data-field="tester" placeholder="检测人（质检员）"/>
+          </view>
+          <view class="qrcode_info_tester_item_container">
+            <image src="../../images/icons/retester.png" />
+            <input value="{{Data.reTester.value}}" bindinput="onInputTester" data-field="reTester" placeholder="复核人（监理）"/>
+          </view>
+          <picker mode="date" bindchange="onInputTester" data-field="testDate">
+            <view class="qrcode_info_tester_item_container">
+              <image src="../../images/icons/testDate.png" />
+              <input value="{{Data.testDate.value}}" placeholder="检测时间  " style="border-bottom: none;" disabled="true" />            
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  
+  </QrcodTemplateCmpt>
+
+
+
+
+
+  <!-- <view wx:if="{{!errMsg}}" class='qrcode_info_container'>
+    <scroll-view class='qrcode_info_scroll_container' scroll-y>
+      <input class='qrcode_info_tbName_input' value='{{Data.dataName}}' placeholder="请输入表名"/>
+      
+    </scroll-view>
+    <button bindtap="onPerview">预览</button>
+    
+  </view>
+  <view wx:if="{{errMsg}}" class="qrcode_info_error">{{errMsg}}</view> -->
+</view>
+
+<modal hidden="{{!optionsItem}}" title="" confirm-text="确定" cancel-text="取消" bindcancel="onModalCancel" bindconfirm="onModalConfirm">
+    <input value="{{optionsItem.testName}}" placeholder="请输入检测项名称" bindinput="onModalInput"/>
+</modal>

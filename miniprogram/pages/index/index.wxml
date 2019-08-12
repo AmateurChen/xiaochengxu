@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="index_container">
+
+    <view>{{data}}</view>
+
+  </view>
+
+
+</view>

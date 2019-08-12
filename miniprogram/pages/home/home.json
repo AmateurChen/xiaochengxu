@@ -1,0 +1,8 @@
+{
+"navigationBarTitleText": "首页",
+  
+  "usingComponents": {
+    "HomeCmpt": "../../component/HomeCmpt/HomeCmpt",
+    "UserCmpt": "../../component/UserCmpt/UserCmpt"
+  }
+}

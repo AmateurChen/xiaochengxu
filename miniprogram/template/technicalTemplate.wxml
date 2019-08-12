@@ -1,0 +1,46 @@
+<template name='technical'>
+  <scroll-view class="technical_scroll" scroll-y>
+    <view class="technical_table_title bold">技术交底</view>
+    <view class="technical_container">
+      <view class="technical_table_tr technical_table_head_tr">
+        <view class="technical_table_td technical_table_name bold" >{{Data.dataName}}</view>
+        <view class="technical_table_td technical_td_title_width bold">编号</view>
+        <text class="technical_table_td technical_td_input_width none_border">{{Data.data.discloseNo}}</text>
+      </view>
+      <view class="technical_table_tr">
+        <view class="technical_table_td technical_td_title_width bold">工程名称</view> 
+        <view class="technical_table_td none_border" style="flex: 1;">{{Data.data.projectName}}</view>
+      </view>
+      <view class="technical_table_tr">
+        <view class="technical_table_td technical_td_title_width bold">分部工程名称</view>
+        <view class="technical_table_td" style="flex: 1;">{{Data.data.branchProjectName}}</view>
+        <view class="technical_table_td technical_td_title_width bold">分项工程名称</view>
+        <view class="technical_table_td technical_td_input_width none_border">{{Data.data.subitemProjectName}}</view>
+      </view>
+      <view class="technical_table_tr">
+        <view class="technical_table_td technical_td_title_width bold">施工单位</view>
+        <view class="technical_table_td" style="flex: 1;">{{Data.data.company}}</view>
+        <view class="technical_table_td technical_td_title_width bold">交底日期</view>
+        <view class="technical_table_td technical_td_input_width none_border">{{Data.data.discloseDate}}</view>
+      </view>
+      <view class="technical_table_tr bold technical_detial_title">
+        <view class="technical_table_td none_border" >交底内容：</view>
+      </view>
+      <text class="technical_table_tr technical_detial_input_container" space="ensp">{{Data.data.discloseDetail}}</text>
+      <view class="technical_table_tr">
+        <view class="technical_table_td bold" style="flex: 1;">审核人</view>
+        <view class="technical_table_td bold" style="flex: 1;">交底人</view>
+        <view class="technical_table_td bold none_border" style="flex: 1;">接收（全员）交底人</view>
+      </view>
+      <view class="technical_table_tr none_border">
+        <view class="technical_table_td" style="flex: 1;">{{Data.data.auditor}}</view>
+        <view class="technical_table_td" style="flex: 1;">{{Data.data.clarifyingPeople}}</view>
+        <view class="technical_table_td none_border" style="flex: 1;">{{Data.data.receiver}}</view>
+      </view>
+      
+    </view>
+    <view class="technical_notice_container">
+      注:本交底一式三份,班组、交底人、资料保管员各一份。
+    </view>
+  </scroll-view>
+</template>

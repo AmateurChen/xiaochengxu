@@ -1,0 +1,92 @@
+<view class="container">
+  <QrcodTemplateCmpt class="consumption_container" bind:onPreviewAction="onPreview" title="{{title}}">
+    <view slot="content" >
+      <bolck wx:for="{{Data.materials}}" wx:key="index">
+        <view class="consumption_data_item_container" bindtouchstart="onItemTouchStart" bindtouchend="onItemTouchEnd" bindlongtap="onLongClickItem" data-index="{{index}}">
+          <view class="consumption_data_item_info_container">
+            <view>{{item.materialName}}</view>
+            <view>{{Tools.calcSubTotal(item)}}</view>
+          </view>
+          <view class="consumption_data_item_info_container">
+            <view >用量：{{item.consumeCount}}</view>
+            <view>单价：{{item.unitPrice}}</view>
+          </view>
+        </view>
+      </bolck>
+    </view>
+  </QrcodTemplateCmpt>
+
+
+  <!-- <view class="consumption_container">
+    <scroll-view class="consumption_scroll" scroll-y >
+      <view class="consumption_data_container">
+        <input class="consumption_data_title_input" value="{{Data.dataName}}" placeholder="请输入标题"/>
+        <bolck wx:for="{{Data.materials}}" wx:key="index">
+          <view class="consumption_data_item_container" bindtouchstart="onItemTouchStart" bindtouchend="onItemTouchEnd" bindlongtap="onLongClickItem" data-index="{{index}}">
+            <view class="consumption_data_item_info_container">
+              <view>{{item.materialName}}</view>
+              <view>{{Tools.calcSubTotal(item)}}</view>
+            </view>
+            <view class="consumption_data_item_info_container">
+              <view >用量：{{item.consumeCount}}</view>
+              <view>单价：{{item.unitPrice}}</view>
+            </view>
+          </view>
+        </bolck>
+      </view>
+    </scroll-view>
+    <button bindtap="onPreview">预览</button>
+  </view> -->
+</view>
+
+
+
+<modal hidden="{{!optionsItem}}" title="{{optionsItem.type==='new' ? '添加' : '修改'}}材料信息" confirm-text="{{optionsItem.type==='new' ? '添加' : '修改'}}" cancel-text="取消" bindcancel="onModalCancel" bindconfirm="onModalConfirm">
+    <input 
+      class="consumption_modal_input"
+      value="{{optionsItem.material.materialName}}" 
+      placeholder="请输入材料名称" 
+      bindinput="onModalInput"
+      data-field="materialName"
+    />
+    <input 
+      class="consumption_modal_input"
+      type="digit"
+      value="{{optionsItem.material.consumeCount}}" 
+      placeholder="请输入材料用量" 
+      bindinput="onModalInput"
+      data-field="consumeCount"
+    />
+    <input 
+      class="consumption_modal_input"
+      type="digit"
+      value="{{optionsItem.material.unitPrice}}" 
+      placeholder="请输入材料单价" 
+      bindinput="onModalInput"
+      data-field="unitPrice"
+    />
+    <input 
+      class="consumption_modal_input"
+      style="border: none; text-align: right; margin-right: 20rpx;"
+      placeholder="{{Tools.calcSubTotal(optionsItem.material)}}" 
+      disabled="false"
+    />
+</modal>
+
+<wxs module="Tools">
+  module.exports.calcSubTotal = function(material) {
+    if (!material) {
+      return "";
+    }
+    if (!material.consumeCount || ""=== material.consumeCount) {
+      return "";
+    }
+
+    if (!material.unitPrice || ""=== material.unitPrice) {
+      return "";
+    }
+
+    var result = material.consumeCount * material.unitPrice;
+    return "合计：" + result.toString();
+  }
+</wxs>

@@ -1,0 +1,17 @@
+<view class="container">
+  <view wx:if="{{datas && datas.length !== 0}}" class="record_container">
+    <scroll-view class='record_list_container' scroll-y >
+      <block wx:for="{{datas}}" wx:key="_id">
+        <view class='record_item_container'>
+          <view class='record_item_text_container' bindtap="onToPreview" bindlongtap="onLongAction" bindtouchstart="onItemTouchStart" bindtouchend="onItemTouchEnd" data-index="{{index}}">
+            <text>{{item.dataName}}</text>
+          </view>
+        </view>
+      </block >
+    </scroll-view>
+  </view>
+
+  <view wx:if="{{!datas || datas.length === 0}}" class="record_none_data_container">
+    无浏览记录
+  </view>
+</view>

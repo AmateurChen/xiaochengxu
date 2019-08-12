@@ -1,0 +1,83 @@
+
+.measure_container {
+  display: flex;
+  flex: 1;
+}
+
+.table_container {
+  display: flex;
+  width: 1400rpx;
+  flex-direction: column;
+  padding: 5rpx;
+  font-size: 25rpx;
+  margin-top: 20rpx;
+}
+.tableName_container {
+  display: flex;
+  flex: 1;
+  height: 70rpx;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 35rpx;
+  border: solid 1rpx black;
+  border-bottom: none;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  flex-direction: row;
+  min-height: 70rpx;
+  border-top: solid black 1rpx;
+  border-left: solid black 1rpx;
+}
+
+.first_td {
+  width: 250rpx;
+  display: flex;
+  border-right: solid black 1rpx;
+  justify-content: center;
+  align-items: center;
+  word-break:break-all;
+}
+.td {
+  display: flex;
+  flex: 1;
+  border-right: solid black 1rpx;
+  justify-content: center;
+  align-items: center;
+  word-break:break-all;
+}
+
+.child_tr {
+  display: flex;
+  flex: 1;
+  border-right: solid black 1rpx;
+  flex-direction: column;
+  
+}
+.child_td {
+  display: flex;
+  flex: 1;
+  min-height: 70rpx;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid black 1rpx;
+  word-break:break-all;
+}
+
+.child_td:last-child {
+  border-bottom: none ;
+}
+
+.tester {
+  display: flex;
+  flex: 1;
+}
+
+.last_tr {
+  border-bottom: solid black 1rpx;
+}
+

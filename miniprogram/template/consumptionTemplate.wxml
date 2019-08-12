@@ -1,0 +1,54 @@
+<template name='consumption'> 
+  <scroll-view scroll-y class="consumption_scroll">
+      <view class="consumption_table_container">
+        <view class="consumption_table_tr">
+          <view class="consumption_table_td none_border">{{Data.dataName}}</view>
+        </view>
+        <view class="consumption_table_tr">
+          <view class="consumption_table_td">材料名称</view>
+          <view class="consumption_table_td">用量</view>
+          <view class="consumption_table_td">单价</view>
+          <view class="consumption_table_td none_border">小计</view>
+        </view>
+
+        <block wx:for="{{Data.materials}}" wx:key="index">
+          <view class="consumption_table_tr">
+            <view class="consumption_table_td">{{item.materialName}}</view>
+            <view class="consumption_table_td">{{item.consumeCount}}</view>
+            <view class="consumption_table_td">{{item.unitPrice}}</view>
+            <view class="consumption_table_td none_border">{{CalcTools.calcSubtotal(item)}}</view>
+          </view>
+        </block>
+        <view class="consumption_table_tr none_border">
+          <view class="consumption_table_td">合计</view>
+          <view class="consumption_table_td"></view>
+          <view class="consumption_table_td"></view>
+          <view class="consumption_table_td none_border">{{CalcTools.calcTotal(Data.materials)}}</view>
+        </view>
+      </view>
+    </scroll-view>
+</template>
+
+
+<wxs module="CalcTools">
+  calcSubtotal = function(material) {
+      if (!material) {
+        return "";
+      }
+      var result = material.consumeCount * material.unitPrice;
+      return result;
+  }
+
+  calcTotal = function(materials) {
+      if (!materials || materials.length === 0) {
+        return "";
+      }
+      var result = 0;
+      materials.map(function(item, index) {
+        result += item.consumeCount * item.unitPrice;
+      });
+	    return result;
+  }
+
+  module.exports = {calcSubtotal: calcSubtotal, calcTotal: calcTotal}
+</wxs>

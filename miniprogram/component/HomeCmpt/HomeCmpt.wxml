@@ -1,0 +1,15 @@
+<view class='module_container'>
+
+  <view wx:if="{{permission}}" class='home_permission_container'>
+    <HomeModuleCmpt class="module" icon="../../images/icons/scan.png" iconText="扫描二维码" bind:onClick="onScanCode" />
+    <HomeModuleCmpt class="module" icon="../../images/icons/qrcode.png" iconText="生成二维码" bind:onClick="onOpenQrcode" />
+    <HomeModuleCmpt class="module" icon="../../images/icons/check.png" iconText="浏览记录" bind:onClick="onQrcodeRecord" />
+    <HomeModuleCmpt class="module" icon="../../images/icons/other.png" iconText="其他" bind:onClick="onOther" />
+  </view>
+
+  <view wx:else class='home_unpermission_container'>
+    <HomeModuleCmpt class="module" icon="../../images/icons/scan.png" iconText="扫描二维码" bind:onClick="onScanCode" />
+    <HomeModuleCmpt class="module" icon="../../images/icons/other.png" iconText="其他" bind:onClick="onOther" />
+  </view>
+      
+</view>

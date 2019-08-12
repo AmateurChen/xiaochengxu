@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/qrcodePreview/qrcodePreview",
+    "pages/qrcodeTemplateList/qrcodeTemplateList",
+    "pages/qrcodeEquipment/qrcodeEquipment",
+    "pages/permissionApproval/permissionApproval",
+    "pages/index/index",
+    "pages/qrcodeList/qrcodeList",
+    "pages/qrcodeRecord/qrcodeRecord",
+    "pages/qrcodeConsumption/qrcodeConsumption",
+    "pages/qrcodeTechnical/qrcodeTechnical",
+    "pages/qrcodeMeasure/qrcodeMeasure",
+    "pages/user/user"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#d81e06",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F6F6F6",
+    "navigationBarTitleText": ""
+  },
+  "sitemapLocation": "sitemap.json"
+}

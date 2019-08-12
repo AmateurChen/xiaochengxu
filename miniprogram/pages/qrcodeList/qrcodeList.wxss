@@ -1,0 +1,78 @@
+.qrcodelist_container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 10rpx;
+}
+
+.qrcodelist_scroll {
+  display: flex;
+  flex: 1;
+}
+
+.qrcodelist_item_container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-top: 10rpx;
+  background: white;
+  border-radius: 10rpx;
+}
+
+.qrcodelist_item {
+  display: flex;
+  min-height: 80rpx;
+  align-items: center;
+}
+
+.qrcodelist_item_title {
+  display: flex;
+  min-height: 80rpx;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1rpx #d81e06;
+}
+
+.qrcodelist_more_view {
+  display: flex;
+  height: 80rpx;
+  margin: 20rpx;
+  justify-content: center;
+  align-items: center;
+  background: #d81e06;
+  border-radius: 10rpx;
+  color: white;
+}
+
+.view_click {
+  background: gray;
+}
+
+.qrcodelist_none_data_container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+
+.qrcode_preview_img_container {
+  display: flex;
+  height: 450rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.qrcode_preview_img_container > canvas {
+  width: 450rpx;
+  height: 450rpx;
+  margin-left: -2000rpx;
+}
+
+.qrcode_preview_img_container image {
+  width: 450rpx;
+  height: 450rpx;
+}

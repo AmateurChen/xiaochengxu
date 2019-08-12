@@ -1,0 +1,43 @@
+@import '../../template/measureTemplate.wxss';
+@import '../../template/technicalTemplate.wxss';
+@import '../../template/consumptionTemplate.wxss';
+@import '../../template/equipmentTemplate.wxss';
+
+.qrcode_preview_container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.qrcode_preview_img_container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.qrcode_preview_img_container > canvas {
+  width: 450rpx;
+  height: 450rpx;
+  margin-left: -2000rpx;
+}
+
+.qrcode_preview_img_container image {
+  width: 450rpx;
+  height: 450rpx;
+}
+
+.qrcode_preview_btn {
+  width: 90%;
+  min-height: 100rpx;
+  color: white;
+  text-align: center;
+  background: #d81e06;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.qrcode_preview_btn_click {
+  background: #888;
+}

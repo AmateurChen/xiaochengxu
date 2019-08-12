@@ -1,0 +1,7 @@
+<view class='user_module_container'>
+  <view class='user_view_container'>
+    <!-- <image class='user_icon_img' src='{{userIcon}}' bindgetuserinfo='onClickAuthor' open-type="getUserInfo" ></image> -->
+    <button class='user_icon_btn' style="background-image: url({{userIcon}})" bindgetuserinfo='onClickAuthor' open-type="getUserInfo"></button>
+    <text class='user_name_text'>{{userName}}</text>
+  </view>
+</view>
